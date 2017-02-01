@@ -1,0 +1,37 @@
+html, body
+    height: 100%
+
+body
+    padding-top: $navbar-height
+    +media-md-min
+        padding-top: 116px
+
+/* Generic horizontal list style */
+.hlist
+    font-size: 0
+    list-style: none
+    padding: 0
+    margin: 0
+    li
+        display: inline-block
+    .sub-menu
+        display: none
+    &.inline
+        li
+            display: inline
+
+
+/* text color classes */
+.text-color
+    &-gray-lighter
+        color: $gray-light
+    &-gray-light
+        color: $gray
+    &-gray-dark
+        color: $gray-dark
+    &-gray-darker
+        color: $gray-darker
+
+.container
+    position: relative
+    z-index: 1

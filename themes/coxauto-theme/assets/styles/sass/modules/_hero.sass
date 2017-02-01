@@ -1,0 +1,123 @@
+.hero
+    @extend .valign-middle-container
+    position: relative
+    background:
+        repeat: no-repeat
+        position: bottom center
+    +background-size(cover)
+
+    &__spacer
+        @extend .valign-middle-container__spacer
+
+    &__body
+        @extend .valign-middle-container__body
+        float: none
+
+        &--constrained
+            @extend .hero__body
+
+            +make-xs-column(12)
+            +make-md-column(6)
+
+            float: none
+            +media-md-min
+                float: none
+
+    .hero__cta
+        @extend .btn
+        @extend .btn-default
+
+        position: absolute
+        bottom: 14%
+        left: 50%
+        +translateX(-50%)
+
+
+.hero--center
+    @extend .hero
+    text-align: center
+
+    .hero__body--constrained
+        +make-md-column(8)
+        +make-lg-column(7)
+
+        +media-md-min
+            float: none
+        +media-lg-min
+            float: none
+
+.hero--ratio
+    @extend .hero
+
+    .hero__container
+        display: block
+        position: absolute
+        top: 50%
+        left: 50%
+        +translate(-50%, -50%)
+
+        &.container
+            +media-xs-max
+                width: 100%
+
+
+.hero--with-video
+    @extend .hero--ratio
+    
+    .hero__container
+        top: percentage(1/3)
+
+    // This is pretty janky, but it's trying to target the element containing
+    // a video that Vide puts on the target element. It should be the first div.
+    > div:first-child
+        // Needs to be important to override the z-index set on the video element by Vide.
+        z-index: 0 !important
+
+
+.hero--full-height
+    height: 100%
+    min-height: 400px
+    overflow: hidden
+
+    .container, .row
+        height: 100%
+
+    .container
+        position: relative
+
+    .hero__body
+        display: block
+        position: relative
+        top: 20%
+
+    .hero__spacer
+        display: none
+
+    &.hero--center
+        .hero__body
+            margin:
+                left: auto
+                right: auto
+
+    &.hero--right
+        .hero__body
+            float: right
+
+
+.hero--left
+    @extend .hero
+    text-align: center
+    +media-md-min
+        text-align: left
+
+.hero--right
+    @extend .hero--left
+    text-align: center
+    +media-md-min
+        text-align: right
+
+    .hero__body--constrained
+        text-align: center
+        +media-md-min
+            text-align: left
+

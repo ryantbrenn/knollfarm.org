@@ -1,0 +1,141 @@
+/**
+ *  Created on : 9/30/2013
+ *  Author     : Jess Green <jgreen@pperiscope.com>
+ *  Contributors :
+ *  Media : All
+ *  Supported Browsers : @see screen.css
+ *  Mobile OS : @see screen.css
+ *  Description : Contains WP Editor/WYSIWYG-specific styles that are overlooked
+ *                after reset styles are applied. These styles are also used in the WordPress Editor (in the admin)
+ *-----------------------------------------------------------------------------
+@import variables
+@import lib/vertical-spacing
+@import modules/mixins/typography
+
+// overrides Bootstrap body padding for WordPress Editor
+body#tinymce
+    padding: $grid-gutter-width / 2 !important
+
+.wp-editor
+    p
+        clear: both
+        float: none
+
+    ul, ol
+        line-height: 1.5
+        clear: both
+        float: none
+
+    blockquote
+        line-height: 1.5
+        clear: both
+        float: none
+
+    p:after
+        content: "."
+        display: block
+        height: 0
+        clear: both
+        visibility: hidden
+
+    ul
+        list-style: circle
+    ol
+        list-style: decimal
+    ul, ol
+        margin-left: $grid-gutter-width
+    ul > li, ol > li
+        margin-bottom: ceil($vertical-spacing-base * 1.5)
+    strong, b
+        font-weight: bold
+    em, i
+        font-style: italic
+    q
+        &:before
+            content: "\201C"
+        &:after
+            content: "\201D"
+        quotes: "“" "”"
+    blockquote
+        margin-left: $grid-gutter-width
+        padding-left: ceil($grid-gutter-width / 3)
+        padding-bottom: $vertical-spacing-base
+    sub
+        font-size: ceil($font-size-base * 0.5)
+        position: relative
+        top: ceil($font-size-base * 0.25)
+    sup
+        font-size: ceil($font-size-base * 0.75)
+        position: relative
+        top: ceil(-$font-size-base * 0.375)
+    pre, code, var, kbd, tt
+        font-family: Consolas, monospace
+    pre
+        overflow: auto
+    address
+        font-family: Consolas, monospace
+        font-style: italic
+        margin-bottom: $grid-gutter-width
+    abbr
+        border-bottom: 1px dotted black
+    dl
+        margin-left: $grid-gutter-width
+        margin-bottom: $vertical-spacing-base
+    dt
+        font-weight: bold
+    dd
+        margin-left: $grid-gutter-width
+    table
+        margin-bottom: $grid-gutter-width
+        td
+            padding: ceil($grid-gutter-width / 6)
+
+.wp-caption:after
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
+
+.aligncenter
+    margin: 0 auto
+    display: block
+    clear: both
+
+.alignleft
+    float: left
+    clear: left
+
+.alignright
+    float: right
+    clear: right
+
+img.aligncenter, .wp-caption.aligncenter
+    margin: ceil($grid-gutter-width / 6) auto
+
+img
+    &.alignnone
+        margin: ceil($grid-gutter-width / 6)
+    &.alignleft
+        margin: ceil($vertical-spacing-base / 2) ceil($grid-gutter-width / 6) ceil($vertical-spacing-base / 2) 0
+
+.wp-caption.alignleft
+    margin: ceil($vertical-spacing-base / 2) ceil($grid-gutter-width / 6) ceil($vertical-spacing-base / 2) 0
+
+img.alignright
+    margin: ceil($vertical-spacing-base / 2) 0 ceil($vertical-spacing-base / 2) ceil($grid-gutter-width / 6)
+
+.wp-caption
+    &.alignright
+        margin: ceil($vertical-spacing-base / 2) 0 ceil($vertical-spacing-base / 2) ceil($grid-gutter-width / 6)
+    background-color: #cfc3ad
+    padding: ceil($vertical-spacing-base / 2) ceil($grid-gutter-width / 6) ceil($vertical-spacing-base / 2)
+    margin-bottom: $grid-gutter-width !important
+    img
+        display: block
+
+.wp-caption-text
+    display: block
+    text-align: center
+    margin-bottom: $vertical-spacing-base !important
+    font-size: ceil($font-size-base * 0.75)

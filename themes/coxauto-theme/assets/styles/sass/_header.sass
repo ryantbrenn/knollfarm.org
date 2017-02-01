@@ -1,0 +1,140 @@
+$wordpress-admin-bar-height: 32px !default
+
+header
+    .main-nav
+        +media-sm-max
+            .navbar-nav
+                margin-top: 0
+                margin-bottom: 0
+
+    .navbar-fixed-top
+        .navbar-collapse
+            max-height: 350px
+
+    .navbar-nav
+        a
+            @extend .h3
+            +media-sm-max
+                font-size: $font-size-s
+
+        > li
+            border-bottom: 1px solid $gray-light-2
+            +media-sm-max
+                font-size: $font-size-s
+            +media-md-min
+                border-bottom: none
+                &:hover
+                    .sub-menu
+                        display: block
+                        padding-top: ceil($vertical-spacing-base * 1.5)
+        &.nav-main
+            > li
+                +media-md-min
+                    &:last-of-type
+                        a
+                            padding-right: 20px
+            a
+                color: $gray-light
+                padding:
+                    top: 16px
+                    bottom: 12px
+                +media-md-min
+                    padding: ($vertical-spacing-base * 3) ($grid-gutter-width / 3) ceil($vertical-spacing-base * 1.5)
+                    font-size: $font-size-xs
+
+        &.nav-dropdowns
+            > li:last-of-type
+                border-bottom: none
+            a
+                color: $brand-primary-light
+                background-color: transparent
+                display: inline-block
+                padding:
+                    top: 16px
+                    bottom: 12px
+                +media-md-min
+                    display: block
+                    padding: ceil($vertical-spacing-base * 1.5) ceil($grid-gutter-width - 10) ceil($vertical-spacing-base * 2)
+
+        .menu-item-has-children
+            +media-sm-max
+                &.open
+                    > a
+                        color: $brand-primary-light
+                        background-color: transparent
+                    .dropdown-toggle-icon:before
+                        content: "\f077"
+                    .sub-menu
+                        border-top: 1px solid #a1a1a1
+                        background-color: #f6f6f6
+                &:not(.open)
+                    .dropdown-toggle-icon:before
+                        content: "\f078"
+                    .sub-menu
+                        display: none
+                .dropdown-toggle
+                    position: absolute
+                    right: 0
+                    color: $brand-primary-light
+                    border-left: 1px solid #dbdbdb
+                    width: 65px
+                    height: 45px
+                    margin: 0
+                    padding: 0
+                    .dropdown-toggle-icon
+                        position: absolute
+                        left: 50%
+                        top: 50%
+                        +transform(translate(-50%, -50%))
+            +media-md-min
+                &:hover
+                    &:after
+                        border-top: 2px solid $brand-primary-light
+                        content: " "
+                        width: 100%
+                        margin-left: 50%
+                        +transform(translateX(-50%))
+                        display: block
+                        position: absolute
+
+        .subnav-expanded
+            .sub-menu
+                font-size: 0 // display: inline-block fix
+                +media-sm-max
+                    > li
+                        width: 50%
+                        display: inline-block
+                +media-md-min
+                    width: $screen-md-min
+                    > li
+                        display: inline-block
+                        width: 33.3333%
+                        text-align: center
+
+        .sub-menu
+            @extend .list-unstyled
+            background-color: $white
+            +media-md-min
+                display: none
+                position: absolute
+                left: 50%
+                +transform(translateX(-50%))
+                min-width: 310px
+            a
+                display: block
+                +media-sm-max
+                    font-size: $font-size-xs
+                    padding: 15px 0 15px 15px
+                    color: $brand-primary-dark
+                +media-md-min
+                    text-align: center
+                    padding: 15px 60px
+    .navbar-brand
+        padding: 15px
+        +media-grid-float-max
+            max-width: 79%
+        +media-md
+            max-width: 250px
+
+.admin-bar .navbar-fixed-top
+    top: $wordpress-admin-bar-height

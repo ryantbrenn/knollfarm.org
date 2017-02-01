@@ -1,0 +1,78 @@
+// *************************************
+//
+//   Bootstrap Utilities
+//   -> Extra utilities for bootstrap.
+//
+// *************************************
+
+
+// -------------------------------------
+//   Breakpoint media query mixins.
+// -------------------------------------
+
+// ----- XS breakpoint ----- //
+=media-xs-min()
+    @media (min-width: $screen-xs-min)
+        @content
+=media-xs-max()
+    @media (max-width: $screen-xs-max)
+        @content
+=media-xs()
+    @media (min-width: $screen-xs-min) and (max-width: $screen-xs-max)
+        @content
+
+// ----- SM breakpoint ----- //
+=media-sm-min()
+    @media (min-width: $screen-sm-min)
+        @content
+=media-sm-max()
+    @media (max-width: $screen-sm-max)
+        @content
+=media-sm()
+    @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max)
+        @content
+
+// ----- MD breakpoint ----- //
+=media-md-min()
+    @media (min-width: $screen-md-min)
+        @content
+=media-md-max()
+    @media (max-width: $screen-md-max)
+        @content
+=media-md()
+    @media (min-width: $screen-md-min) and (max-width: $screen-md-max)
+        @content
+
+// ----- LG breakpoint ----- //
+=media-lg-min()
+    @media (min-width: $screen-lg-min)
+        @content
+=media-lg-max()
+    @media (max-width: $screen-lg-max)
+        @content
+=media-lg()
+    @media (min-width: $screen-lg-min) and (max-width: $screen-lg-max)
+        @content
+
+// ----- Grid float breakpoint ----- //
+=media-grid-float-min()
+    @media (min-width: $grid-float-breakpoint)
+        @content
+=media-grid-float-max()
+    @media (max-width: $grid-float-breakpoint)
+        @content
+
+
+// ----- Retina ----- //
+
+=media-retina()
+    @media (-webkit-min-device-pixel-ratio: 1.5), (min-resolution: 144dppx)
+        @content
+
+=media-retina-sm-max
+    @media (-webkit-min-device-pixel-ratio: 1.5) and (max-width: $screen-sm-max), (min-resolution: 144dppx) and (max-width: $screen-sm-max)
+        @content
+
+=media-retina-md-min
+    @media (-webkit-min-device-pixel-ratio: 1.5) and (min-width: $screen-md-min), (min-resolution: 144dppx) and (min-width: $screen-md-min)
+        @content

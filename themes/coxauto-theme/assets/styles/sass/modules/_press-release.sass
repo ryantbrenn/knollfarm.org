@@ -1,0 +1,136 @@
+.press-room-detail
+    h1
+        text-align: left
+
+    .post-thumbnail
+        width: 100%
+        img
+            width: 100%
+            height: auto
+
+    .article-header
+        +media-md-min
+            border-bottom: 1px solid $press-release-border
+
+    .related-posts
+        .h2
+            color: $brand-primary
+
+        .the-date
+            margin-bottom: ($vertical-spacing-base * 1.5)
+
+        .related-post-item
+            border-bottom: 1px solid $press-release-border
+
+    .sharing-buttons
+        float: right
+        text-align: right
+        margin-bottom: $vertical-spacing-base
+        padding-bottom: $vertical-spacing-base
+        border-bottom: 1px solid $press-release-border
+        display: inline-block
+
+        .sharing-menu
+            display: inline-block
+
+        +media-md-min
+            float: left
+            text-align: center
+            margin-bottom: 0
+            padding-bottom: 0
+            border-bottom: none
+
+            .sharing-menu
+                display: block
+
+    .sharing-menu
+        list-style: none
+        margin: 0
+        padding: 0
+        &-label
+            display: inline-block
+            +media-md-min
+                display: block
+        li
+            display: inline-block
+            text-align: center
+            margin-left: ceil($grid-gutter-width / 6)
+            +media-md-min
+                display: block
+                margin-left: 0
+
+        li + li
+            +media-md-min
+                margin-top: ceil($vertical-spacing-base * 1.5)
+        .fa
+            width: 24px
+            height: 24px
+            font-size: 24px
+            display: inline-block
+            &:visited,
+            &:hover,
+            &:active
+                text-decoration: none
+        .fa-
+            &facebook-official
+                color: $social-media-facebook
+            &twitter
+                color: $social-media-twitter
+            &linkedin
+                color: $social-media-linkedin
+            &envelope-o
+                color: $social-media-email
+    
+.press-room
+    h1
+        text-align: center
+
+    .navbar
+        +media-md-max
+            div + div
+                margin-top: $vertical-spacing-base
+
+    .btn-loadmore
+        width: 30%
+        margin: 0 auto
+        display: block
+
+    h2
+        a
+            @extend .h2
+
+.hfeed
+    .type-post
+        border-bottom: 1px solid $input-border-color
+
+    .readmore
+        text-decoration: underline
+
+.pr-list
+    list-style: none
+    margin: 0
+    padding: 0
+    color: $gray-light
+    .pr-item
+        margin-bottom: $vertical-spacing-base * 3
+        padding-bottom: $vertical-spacing-base * 3
+        border-bottom: 1px solid $input-border-color
+        [class*=pr-] + [class*=pr-]
+            margin-top: ceil($vertical-spacing-base * 0.6)
+        .pr-name
+            display: block
+            text-transform: uppercase
+            color: $brand-primary-dark
+            font:
+                family: $font-family-Helvetica-Neue-Condensed-Bold
+                
+.pr-sidebar
+    p + p
+        margin-top: ceil($vertical-spacing-base * 2)
+
+    .btn
+        width: 100%
+
+.loadmore
+    display: none
+    text-align: center

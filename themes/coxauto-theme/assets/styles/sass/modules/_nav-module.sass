@@ -1,0 +1,30 @@
+.display-module-nav
+    background:
+        repeat: no-repeat
+        position: center center
+    +background-size(cover)
+
+    &__btn
+        @extend .btn
+        @extend .btn-primary
+        @extend .arrow-down
+        margin-top: $vertical-spacing-base * 3
+        width: 100px
+        
+        &__body
+            display: block
+            min-height: $btn-down-arrow-line-height * $font-size-base * 1
+
+    .wp-editor
+        +media-md-min
+            min-height: 120px
+        +media-lg-min
+            min-height: 80px
+
+
+@for $i from 2 through 5
+    .display-module-nav--#{$i}-line-btns
+        @extend .display-module-nav
+
+        .display-module-nav__btn__body
+            min-height: $btn-down-arrow-line-height * $font-size-base * $i

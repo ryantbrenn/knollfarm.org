@@ -1,0 +1,57 @@
+$slant: image-url('diagonal_line.svg')
+$slant-width: 100px
+
+.fact-list
+    color: $brand-primary
+    &__container
+        border-top: 2px solid $gray-lighter
+        &:last-child
+            border-bottom: 2px solid $gray-lighter
+    &__body
+        @extend .container
+        display: table
+        table-layout: fixed
+    &__row
+        display: table-row
+    .fact
+        position: relative
+        padding: 0 ceil($slant-width / 2)
+        display: table-cell
+        &:before
+            content: ''
+            position: absolute
+            top: 0
+            left: -#{ceil($slant-width / 2)}
+            width: $slant-width
+            height: 100%
+            background:
+                image: $slant
+                repeat: no-repeat
+        &:first-child
+            &:before
+                display: none
+    &__content
+        margin: 0 auto
+        padding: $grid-gutter-width
+        max-width: 300px
+        min-height: 260px
+        +media-sm-max
+            min-height: 0
+
+    +media-sm-max
+        &__container
+            border-top: 0
+        &__body
+            display: block
+            table-layout: auto
+        &__row
+            display: block
+        .fact
+            padding: 0
+            border-top: 2px solid $gray-lighter
+            display: block
+            &:before
+                display: none
+        &__content
+            max-width: none
+            min-height: auto

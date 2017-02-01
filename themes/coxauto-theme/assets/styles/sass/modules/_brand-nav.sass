@@ -1,0 +1,79 @@
+.brand-filter-nav
+    ul
+        margin-left: 0
+        position: relative
+        display: block
+        +media-md-min
+            display: table
+        > li + li a
+            border-top: 1px solid
+        > li
+            padding: 0
+            display: block
+            +media-md-min
+                display: table-cell
+            a
+                width: 100%
+                text-align: left
+                position: relative
+                +media-md-min
+                    text-align: center
+
+            .dropdown-toggle-icon
+                position: absolute
+                right: 15px
+                top: 50%
+                +transform(translateY(-50%))
+                width: 20px
+                height: 20px
+
+            &:not(.open)
+                .dropdown-toggle-icon:before
+                    content: "\f078"
+                .children
+                    display: none
+
+            &.open
+                .dropdown-toggle-icon:before
+                    content: "\f077"
+                .children
+                    display: block
+                    z-index: 1
+                    +media-sm-max
+                        .btn
+                            border-left-color: $brand-primary-dark
+                            border-right-color: $brand-primary-dark
+                            color: $brand-primary-dark
+                            &.selected
+                                color: $input-hover-text-color
+                        li:last-of-type .btn
+                            border-bottom-color: $brand-primary-dark
+
+    .children
+        +media-md-min
+            position: absolute
+            left: 0
+            width: 100%
+            font-size: 0
+            > li
+                display: inline-block
+                > a
+                    border-top: none
+
+    +media-md-min
+        .item-columns
+            &-1
+                li
+                    width: 100%
+            &-2
+                li
+                    width: 50%
+            &-3
+                li
+                    width: 33.3333%
+            &-4
+                li
+                    width: 25%
+            &-5
+                li
+                    width: 20%

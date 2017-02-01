@@ -1,0 +1,13 @@
+=headers()
+    $headers: ()
+    @for $i from 1 to 6
+        $headers: append($headers, unquote("h#{$i}"), comma)
+        $headers: append($headers, unquote(".h#{$i}"), comma)
+
+    #{$headers}
+        @content
+
+
+=header($number)
+    h#{$number}, .h#{$number}
+        @content

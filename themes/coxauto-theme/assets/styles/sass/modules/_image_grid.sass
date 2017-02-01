@@ -1,0 +1,51 @@
+.image-grid
+    margin-bottom: $vertical-spacing-base * -3
+
+    +media-xs-max
+        max-width: 370px
+
+    &__row
+        @extend .row
+
+    &__item
+        @extend .col-xs-12
+        @extend .col-sm-6
+        @extend .col-md-4
+        @extend .col-lg-3
+
+        margin:
+            bottom: $vertical-spacing-base * 3
+
+        &__container
+            background-color: #fff
+            padding: $grid-gutter-width
+
+        &__image
+            +uncle-daves-padded-box($width: 264, $height: 223)
+            width: 100%
+            background:
+                position: center bottom
+                repeat: no-repeat
+                size: cover
+
+        &__title
+            @extend .h3
+            color: $brand-primary
+
+            & + .image-grid__item__content
+                margin-top: $vertical-spacing-base
+
+        &__content
+            overflow: hidden
+            .hlist > li
+                font-size: $font-size-base
+            +media-sm-min
+                height: $line-height-computed * 3
+
+            & + .btn
+                margin-top: $vertical-spacing-base * 2
+
+            &--3-lines
+                @extend .image-grid__item__content
+                +media-sm-min
+                    height: $line-height-computed * 3

@@ -1,0 +1,34 @@
+.top-fractal
+    $top-fractal-background-image: 'footer_shapes.png'
+    background:
+        image: image-url($top-fractal-background-image)
+        repeat: no-repeat
+        position: top center
+    +background-size(100% auto)
+
+.top-fractal--encroach-above
+    @extend .top-fractal
+    margin-top: -137px
+
+.encroach-on-top-fractal
+    margin-top: -140px
+
+.fractal-repeated-top
+    $background-image: 'repeatable_fractal_top.png'
+
+    +uncle-daves-padded-box($background-image)
+
+    display: block
+    background:
+        image: image-url($background-image)
+        position: bottom center
+        repeat: no-repeat
+        size: 100% auto
+    width: 100%
+
+.fractal-repeated
+    background:
+        image: image-url('repeatable_fractal.jpg')
+        repeat: repeat-y
+        position: top center
+        size: 100% auto

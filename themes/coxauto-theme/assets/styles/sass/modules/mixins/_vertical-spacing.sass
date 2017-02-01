@@ -1,0 +1,22 @@
+$vertical-spacing-interations: 10 !default
+$vertical-spacing-base: 10px !default
+
+=make-vertical-spacing-classes($sub-class)
+    @for $size from 0 through $vertical-spacing-interations
+        @each $direction in ("bottom", "top")
+            .vs-#{$sub-class}-#{$direction}-#{$size}
+                margin-#{$direction}: $vertical-spacing-base * $size
+
+            .vsp-#{$sub-class}-#{$direction}-#{$size}
+                padding-#{$direction}: $vertical-spacing-base * $size
+
++make-vertical-spacing-classes("xs")
+
+@media (min-width: $screen-sm-min)
+    +make-vertical-spacing-classes("sm")
+
+@media (min-width: $screen-md-min)
+    +make-vertical-spacing-classes("md")
+
+@media (min-width: $screen-lg-min)
+    +make-vertical-spacing-classes("lg")

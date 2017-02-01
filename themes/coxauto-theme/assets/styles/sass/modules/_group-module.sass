@@ -1,0 +1,21 @@
+.display-module-group
+    .group__body
+        width: 100%
+        position: absolute
+        display: block
+        top: 50%
+        +translateY(-50%)
+
+    .display-module
+        text-align: center
+        margin-left: auto
+        margin-right: auto
+        &-text
+            width: 100%
+            +media-sm-min
+                width: 60%
+            +media-md-min
+                width: 45%
+
+    .display-module-list__item + .display-module-list__item
+        margin-top: $vertical-spacing-base * 3

@@ -1,0 +1,14 @@
+.display-module-list__item
+    & + &
+        margin-top: $vertical-spacing-base * 6
+    & + .no-space
+        margin-top: 0
+
+    &--full-height
+        @extend .display-module-list__item
+        height: 100%
+
+    &:first-of-type
+        .display-module-text,
+        .display-module-standard
+            margin-top: $vertical-spacing-base * 6

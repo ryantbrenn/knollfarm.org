@@ -1,0 +1,19 @@
+.carousel
+    .carousel-indicators
+        top: 20px
+    .carousel-inner
+        +media-md-min
+            height: 420px
+        +media-lg-min
+            height: 500px
+
+    .carousel-control
+        background-image: none
+        top: 50%
+        +transform(translate(-50%))
+        width: auto
+        &.left
+            left: 20px
+
+        .fa:before
+            font-size: $font-size-h1

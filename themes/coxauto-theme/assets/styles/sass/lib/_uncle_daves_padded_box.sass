@@ -1,0 +1,19 @@
+/*
+ * Mixin to implement Uncle Dave's Ol' Padded Box on an element.
+ * Takes either an image to use for sizing or a specific height
+ * and width.
+ *
+ * http://daverupert.com/2012/04/uncle-daves-ol-padded-box/
+ */
+=uncle-daves-padded-box($image: null, $width: null, $height: null)
+    @if $image != null
+        background-image: image-url($image)
+
+        @if $height == null
+            $height: image-height($image)
+
+        @if $width == null
+            $width: image-width($image)
+
+    height: 0
+    padding-bottom: percentage($height/$width)

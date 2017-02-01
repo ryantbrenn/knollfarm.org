@@ -1,0 +1,84 @@
+footer
+    position: relative
+    padding:
+        top: 32px
+        bottom: 28px
+    background: #144878
+    color: #9dbcd6
+    +media-sm-max
+        text-align: center
+    ul
+        margin-bottom: 0
+
+    li, a, .h3
+        color: #fff
+    a
+        &:hover
+            text-decoration: none
+            color: #ddd
+    .footer-social-icons
+        li
+            font-size: 1.5em
+
+    .footer-nav
+        $item-padding: 8px
+        $item-padding-sm: 15px
+        @extend .list-inline
+
+        margin:
+            left: $item-padding/-2
+            right: $item-padding/-2
+
+        font-size: 0
+
+        +media-sm-min
+            margin:
+                left: $item-padding-sm/-2
+                right: $item-padding-sm/-2
+
+        li
+            @extend .h3
+
+            padding:
+                left: $item-padding/2
+                right: $item-padding/2
+
+            font-size: $font-size-h3
+
+            +media-sm-min
+                padding:
+                    left: $item-padding-sm/2
+                    right: $item-padding-sm/2
+
+            & + li
+                margin-top: 0
+                &:before
+                    display: inline-block
+                    padding:
+                        right: $item-padding
+
+                    content: '|'
+
+                    +media-sm-min
+                        padding:
+                            right: $item-padding-sm
+
+
+.footer--with-leading-fractal
+    $fractal-image: 'footer_shapes.png'
+    margin-top: ceil(image-height($fractal-image) / 1.5)
+    z-index: 0
+
+    &:before
+        content: ''
+        position: absolute
+        right: 0
+        bottom: 100%
+        left: 0
+        width: 100%
+        height: image-height($fractal-image)
+        background:
+            image: image-url($fractal-image)
+            repeat: no-repeat
+            position: top center
+        +background-size(cover)

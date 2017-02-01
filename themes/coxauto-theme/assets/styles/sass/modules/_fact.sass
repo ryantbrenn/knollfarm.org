@@ -1,0 +1,26 @@
+.fact__title
+    @extend .h1
+    text-transform: uppercase
+
+.fact__body
+    margin-top: 10px
+
+.fact__title--w-icon
+    @extend .fact__title
+
+.fact__title--w-icon__icon, .fact__title--w-icon__title
+    display: table-cell
+    vertical-align: middle
+
+.fact__title--w-icon__icon
+    padding-right: 10px
+
+.fact__title--w-icon__title
+    font:
+        size: 24px
+        family: $font-family-Helvetica-Neue-Condensed-Light
+    line-height: 26px
+    text-transform: none
+    +media-md
+        font-size: $font-size-base
+        line-height: $line-height-base

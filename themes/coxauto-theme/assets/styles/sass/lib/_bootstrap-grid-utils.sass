@@ -1,0 +1,122 @@
+@import compass/css3/inline-block
+
+// *************************************a
+//
+//   Bootstrap Grid Utilities
+//   -> Extra utilities for the bootstrap grid system.
+//
+// *************************************
+
+// -------------------------------------
+//   Adds styles to any boostrap column class.
+// -------------------------------------
+=all-col-sizes
+    [class^="col-xs-"], [class^="col-sm-"], [class^="col-md-"], [class^="col-lg-"], .col
+        @content
+
+// -------------------------------------
+//   If a column has a .center-block class
+//   on it, allow it to be centered.
+// -------------------------------------
++all-col-sizes
+    &.center-block
+        float: none
+
+// -------------------------------------
+//   A row who's columns are displayed
+//   inline-block instead of floated
+//   and vertically aligned middle.
+// -------------------------------------
+.row--inline-grid
+    font-size: 0
+
+    +all-col-sizes
+        font-size: $font-size-base
+        float: none
+        +inline-block
+
+    %row-column
+        font-size: $font-size-base
+        float: none
+        +inline-block
+
+// -------------------------------------
+//   A row who's columns are centered
+//   within the row.
+// -------------------------------------
+.row--inline-grid-centered
+    @extend .row--inline-grid
+    text-align: center
+
+    +all-col-sizes
+        text-align: left
+
+    %row-column
+        text-align: left
+
+// -------------------------------------
+//   A row who's columns are inline-block
+//   instead of floated and vertically
+//   aligned to the top.
+// -------------------------------------
+.row--inline-grid-top
+    @extend .row--inline-grid
+
+    +all-col-sizes
+        vertical-align: top
+
+    %row-column
+        vertical-align: top
+
+.row--inline-grid-bottom
+    @extend .row--inline-grid
+
+    +all-col-sizes
+        vertical-align: bottom
+
+    %row-column
+        vertical-align: bottom
+
+
+// -------------------------------------
+//   Since the inline grid row has
+//   inline-grid columns in it, the built
+//   in pull/push classes do not work.
+//   This fixes that issue.
+// -------------------------------------
+.row--inline-grid
+    =col-push-pull-breakpoint-classes($breakpoint)
+        @for $columns from 1 through $grid-columns
+            .col-#{$breakpoint}-push-#{$columns}
+                left: percentage(($columns/$grid-columns) * -1)
+
+            .col-#{$breakpoint}-pull-#{$columns}
+                right: percentage(($columns/$grid-columns) * -1)
+
+    +col-push-pull-breakpoint-classes('xs')
+
+    +media-sm-min
+        +col-push-pull-breakpoint-classes('sm')
+
+    +media-md-min
+        +col-push-pull-breakpoint-classes('md')
+
+    +media-lg-min
+        +col-push-pull-breakpoint-classes('lg')
+
+
+// -------------------------------------
+//   A row that has no gutter and the
+//   who's columns within have no gutter
+//   either.
+// -------------------------------------
+.row--gutterless
+    padding:
+        left: $grid-gutter-width/2
+        right: $grid-gutter-width/2
+
+    +all-col-sizes
+        padding: 0
+
+    %row-column
+        padding: 0
